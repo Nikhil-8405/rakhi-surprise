@@ -34,7 +34,7 @@ If the file is missing the site works perfectly — the button just tells you.
 
 ## 4 · Add the puzzle photo
 
-Add one image named **`puzzlephoto.jpg`** directly inside **`assets/`**. The
+Add one image named **`puzzlephoto.jpg`** inside **`assets/photos/`**. The
 chapter 7 puzzle divides this image into 9 pieces automatically. A placeholder
 pattern is used until the image is added.
 
