@@ -15,6 +15,33 @@ function initWelcome() {
   document.getElementById("welcome-rakhi").innerHTML = FX.rakhi(150);
   document.getElementById("welcome-title").innerHTML =
     "Happy Raksha Bandhan, <em>" + CONFIG.sisterName + "</em>";
+  const okay = document.getElementById("welcome-okay");
+  const no = document.getElementById("welcome-no");
+  const banter = document.getElementById("welcome-banter");
+  let okayClicks = 0, noClicks = 0;
+  const noLines = [
+    "Please open it na 🥺",
+    "That button was only a test. Try the nice one 😌",
+    "Not interested? I spent actual time on this 😂",
+    "Okay, I will wait right here… dramatically."
+  ];
+  no.addEventListener("click", e => {
+    noClicks++;
+    banter.textContent = noLines[Math.min(noClicks - 1, noLines.length - 1)];
+    no.classList.remove("shake"); void no.offsetWidth; no.classList.add("shake");
+    FX.sparkle(e.clientX, e.clientY);
+  });
+  okay.addEventListener("click", e => {
+    okayClicks++;
+    if (okayClicks === 1) {
+      okay.textContent = "Okay okay… open it 😌";
+      okay.classList.add("welcome-okay-ready");
+      banter.textContent = "One more click. I promise this time it is worth it 👀";
+      FX.sparkle(e.clientX, e.clientY);
+      return;
+    }
+    window.go("#s-ceremony");
+  });
 }
 
 /* ---------- SCREEN 3 · ceremony (press & hold) ---------- */

@@ -16,6 +16,13 @@
 
 /* ---------- SCREEN 2 · welcome ---------- */
 .welcome-rakhi { margin: 0.5rem auto 1.4rem; width: 150px; animation: floaty 4.5s ease-in-out infinite; }
+.welcome-actions { display: flex; align-items: center; justify-content: center; gap: 0.75rem; flex-wrap: wrap; }
+.welcome-okay { min-width: 190px; transform: scale(1.08); }
+.welcome-okay-ready { animation: btnBounce 0.65s ease; }
+.welcome-no { padding: 0.7rem 1.1rem; color: var(--ink-soft); background: transparent; border: 1px solid rgba(138, 90, 104, 0.35); box-shadow: none; font-size: 0.78rem; }
+.welcome-banter { min-height: 1.8em; margin: 1rem auto 0; color: var(--rose-deep); font-family: var(--hand); font-size: 1.3rem; }
+.welcome-no.shake { animation: shakeX 0.4s ease; }
+@keyframes btnBounce { 50% { transform: scale(1.15) rotate(-1deg); } }
 @keyframes floaty { 50% { transform: translateY(-10px) rotate(3deg); } }
 
 /* ---------- SCREEN 3 · ceremony ---------- */

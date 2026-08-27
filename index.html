@@ -67,7 +67,11 @@
       <div class="welcome-rakhi reveal" id="welcome-rakhi"></div>
       <h1 class="h-display reveal" id="welcome-title">Happy Raksha Bandhan, <em>Di</em></h1>
       <p class="lead reveal">Before you say anything…<br>yes, I actually made a <strong>whole website</strong> for you 😂</p>
-      <button class="btn btn-rose reveal" data-testid="continue-to-ceremony" data-next="#s-ceremony">Okay… show me 👀</button>
+      <div class="welcome-actions reveal">
+        <button class="btn btn-rose welcome-okay" id="welcome-okay" data-testid="continue-to-ceremony">Okay… show me 👀</button>
+        <button class="btn welcome-no" id="welcome-no" data-testid="not-interested">Not interested 🙈</button>
+      </div>
+      <p class="welcome-banter" id="welcome-banter" aria-live="polite"></p>
     </div>
     <div class="marquee" aria-hidden="true"><div class="marquee-track" id="marquee-1"></div></div>
   </section>
@@ -293,7 +297,7 @@
 <script src="js/config.js?v=2" defer></script>
 <script src="js/fx.js" defer></script>
 <script src="js/journey.js?v=2" defer></script>
-<script src="js/screens-a.js?v=2" defer></script>
+<script src="js/screens-a.js?v=3" defer></script>
 <script src="js/screens-b.js" defer></script>
 <script src="js/screens-c.js" defer></script>
 </body>
