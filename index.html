@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#6d1b2b">
+<meta name="description" content="A little digital memory, tied with love. Happy Raksha Bandhan, Di.">
+<title>For My Di — A Rakhi Surprise</title>
+<!--
+  ============================================================
+  ★ PERSONALIZATION AREA IS IN  js/config.js  ★
+  Change names, photos, messages, quiz, letter & music there.
+  ============================================================
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/screens.css">
+<link rel="stylesheet" href="css/screens2.css?v=2">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='42' fill='%23e2536f'/><circle cx='50' cy='50' r='24' fill='%23f2cd7a'/></svg>">
+</head>
+<body>
+
+<!-- shared gradients for every rakhi illustration -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <radialGradient id="gGem" cx="35%" cy="30%" r="85%">
+      <stop offset="0%" stop-color="#fff3c9"/><stop offset="45%" stop-color="#f2cd7a"/><stop offset="100%" stop-color="#c98a2d"/>
+    </radialGradient>
+    <linearGradient id="gThread" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#e2536f"/><stop offset=".5" stop-color="#f2cd7a"/><stop offset="1" stop-color="#e2536f"/>
+    </linearGradient>
+  </defs>
+</svg>
+
+<div id="progress" aria-hidden="true"><span id="progress-fill"></span></div>
+<canvas id="petals" aria-hidden="true"></canvas>
+<div class="grain" aria-hidden="true"></div>
+
+<main id="journey">
+
+  <!-- ============ SCREEN 1 · MAGICAL INTRO ============ -->
+  <section class="screen screen-dark" id="s-intro" data-testid="screen-intro">
+    <button id="egg-star" class="egg-star" data-testid="egg-star" aria-label="a tiny glowing star">✦</button>
+    <div class="intro-stage">
+      <svg class="intro-thread" viewBox="0 0 360 230" aria-hidden="true">
+        <path id="thread-path" d="M-20 190 C 50 130, 110 210, 180 118 S 300 30, 385 88" fill="none"/>
+      </svg>
+      <div class="intro-rakhi" id="intro-rakhi"></div>
+      <div class="intro-copy">
+        <p class="masked" style="--d:2.1s"><span>Hey Di…</span></p>
+        <p class="masked" style="--d:3.0s"><span>I made something for you.</span></p>
+        <p class="masked serif-i" style="--d:3.9s"><span>Not just a Rakhi —<br>a little digital memory of us.</span></p>
+      </div>
+      <div class="intro-cta-wrap">
+        <button class="btn btn-gold btn-glow" id="intro-cta" data-testid="intro-open-surprise" data-next="#s-welcome">Open Your Surprise</button>
+        <p class="hint-soft">psst — there's a music button floating on your screen</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SCREEN 2 · WELCOME ============ -->
+  <section class="screen" id="s-welcome" data-testid="screen-welcome" hidden>
+    <div class="wrap center">
+      <p class="kicker reveal">chapter one · hello you</p>
+      <div class="welcome-rakhi reveal" id="welcome-rakhi"></div>
+      <h1 class="h-display reveal" id="welcome-title">Happy Raksha Bandhan, <em>Di</em></h1>
+      <p class="lead reveal">Before you say anything…<br>yes, I actually made a <strong>whole website</strong> for you 😂</p>
+      <button class="btn btn-rose reveal" data-testid="continue-to-ceremony" data-next="#s-ceremony">Okay… show me 👀</button>
+    </div>
+    <div class="marquee" aria-hidden="true"><div class="marquee-track" id="marquee-1"></div></div>
+  </section>
+
+  <!-- ============ SCREEN 3 · RAKHI CEREMONY ============ -->
+  <section class="screen screen-blush" id="s-ceremony" data-testid="screen-ceremony" hidden>
+    <div class="wrap center">
+      <p class="kicker reveal">chapter two · the ceremony</p>
+      <h2 class="h-display reveal">Tie the Rakhi</h2>
+      <p class="lead reveal" id="ceremony-instruction">press &amp; hold the rakhi — don't let go 🪢</p>
+      <div class="ceremony-stage" id="ceremony-stage">
+        <span class="diya diya-l" aria-hidden="true"></span>
+        <span class="diya diya-r" aria-hidden="true"></span>
+        <div class="hold-wrap">
+          <svg class="hold-svg" viewBox="0 0 120 120" aria-hidden="true">
+            <circle class="hold-track" cx="60" cy="60" r="52"/>
+            <circle class="hold-ring" id="hold-ring" cx="60" cy="60" r="52"/>
+          </svg>
+          <button class="ceremony-rakhi" id="ceremony-rakhi" data-testid="ceremony-rakhi" aria-label="Press and hold to tie the rakhi"></button>
+        </div>
+        <div class="ceremony-msg" id="ceremony-msg">
+          <p class="cmsg msg-big">Rakhi tied successfully ❤️</p>
+          <p class="cmsg serif-i">No matter how far apart we are,<br>this little thread will always connect us.</p>
+        </div>
+      </div>
+      <button class="btn btn-gold" id="ceremony-next" data-testid="continue-to-gallery" data-next="#s-gallery" hidden>Now… come see our little world</button>
+    </div>
+  </section>
+
+  <!-- ============ SCREEN 4 · PHOTO GALLERY ============ -->
+  <section class="screen" id="s-gallery" data-testid="screen-gallery" hidden>
+    <div class="wrap">
+      <p class="kicker reveal">chapter three · us</p>
+      <h2 class="h-display reveal">Our photo memories</h2>
+      <p class="lead reveal">swipe sideways · tap a polaroid to open it ✨</p>
+    </div>
+    <div class="gallery-strip" id="gallery-strip" data-testid="gallery-strip"></div>
+    <div class="wrap center">
+      <button class="btn btn-rose reveal" data-testid="continue-to-timeline" data-next="#s-timeline">Keep walking down memory lane</button>
+    </div>
+  </section>
+
+  <!-- ============ SCREEN 5 · TIMELINE ============ -->
+  <section class="screen screen-lav" id="s-timeline" data-testid="screen-timeline" hidden>
+    <div class="wrap">
+      <p class="kicker reveal">chapter four · then → now</p>
+      <h2 class="h-display reveal">Little moments, <em>big memories</em></h2>
+      <div class="timeline" id="timeline-list"></div>
+      <div class="center">
+        <button class="btn btn-rose reveal" data-testid="continue-to-cards" data-next="#s-cards">There's more…</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SCREEN 6 · UNSAID CARDS ============ -->
+  <section class="screen" id="s-cards" data-testid="screen-cards" hidden>
+    <div class="wrap center">
+      <p class="kicker reveal">chapter five · unsaid things</p>
+      <h2 class="h-display reveal">Things I probably<br><em>don't say enough…</em></h2>
+      <p class="lead reveal">tap each card to flip it</p>
+      <div class="cards-stack" id="cards-stack"></div>
+      <p class="cards-count" id="cards-count" data-testid="cards-count">0 of 5 opened</p>
+      <button class="btn btn-gold" id="cards-next" data-testid="continue-to-envelopes" data-next="#s-envelopes" hidden>I found some envelopes for you 💌</button>
+    </div>
+  </section>
+
+  <!-- ============ SCREEN 7 · SECRET ENVELOPES ============ -->
+  <section class="screen screen-blush" id="s-envelopes" data-testid="screen-envelopes" hidden>
+    <div class="wrap center">
+      <p class="kicker reveal">chapter six · sealed with love</p>
+      <h2 class="h-display reveal">The secret envelopes</h2>
+      <p class="lead reveal">open them in any order… well, <em>almost</em> any order.</p>
+      <div class="env-grid" id="env-grid"></div>
+      <button class="btn btn-gold" id="env-next" data-testid="continue-to-puzzle" data-next="#s-puzzle" hidden>Okay, one tiny game 🧩</button>
+    </div>
+  </section>
+
+  <!-- ============ SCREEN 8 · PUZZLE ============ -->
+  <section class="screen" id="s-puzzle" data-testid="screen-puzzle" hidden>
+    <div class="wrap center">
+      <p class="kicker reveal">chapter seven · tiny chaos</p>
+      <h2 class="h-display reveal">Put the rakhi<br>back together</h2>
+      <p class="lead reveal">tap two pieces to swap them</p>
+      <div class="puz-grid" id="puz-grid" data-testid="puzzle-grid"></div>
+      <p class="puz-msg" id="puz-msg" data-testid="puzzle-message"></p>
+      <button class="btn btn-gold" id="puz-next" data-testid="continue-to-quiz" data-next="#s-quiz" hidden>You solved it! One more thing… 🥹</button>
+    </div>
+  </section>
+
+  <!-- ============ SCREEN 9 · QUIZ ============ -->
+  <section class="screen screen-lav" id="s-quiz" data-testid="screen-quiz" hidden>
+    <div class="wrap center">
+      <p class="kicker reveal">chapter eight · the official investigation</p>
+      <h2 class="h-display reveal">How well do you<br><em>know us?</em> 😂</h2>
+      <div class="quiz-box" id="quiz-box" data-testid="quiz-box"></div>
+      <button class="btn btn-gold" id="quiz-next" data-testid="continue-to-thread" data-next="#s-thread" hidden>This next one is my favourite</button>
+    </div>
+  </section>
+
+  <!-- ============ SCREEN 10 · THE THREAD ============ -->
+  <section class="screen screen-dark" id="s-thread" data-testid="screen-thread" hidden>
+    <div class="wrap center">
+      <p class="kicker light reveal">chapter nine · the invisible thread</p>
+      <h2 class="h-display reveal">Me <span class="gold-i">—</span> Di</h2>
+      <p class="lead light reveal">drag your finger from my side to yours</p>
+    </div>
+    <div class="thread-stage" id="thread-stage" data-testid="thread-stage">
+      <div class="glow-veil" aria-hidden="true"></div>
+      <svg class="thread-svg" id="thread-svg" aria-hidden="true"><path id="thread-line" fill="none"/></svg>
+      <button class="thread-node node-me" id="node-me" data-testid="node-me" aria-label="Me">Me</button>
+      <button class="thread-node node-di" id="node-di" data-testid="node-di" aria-label="Di">Di</button>
+      <div class="thread-rakhi" id="thread-rakhi"></div>
+      <p class="thread-quote serif-i" id="thread-quote">Distance can change. Life can change.<br>But this bond doesn't.</p>
+    </div>
+    <div class="wrap center">
+      <button class="btn btn-gold btn-glow" id="thread-next" data-testid="continue-to-reasons" data-next="#s-reasons" hidden>Keep going ❤️</button>
+    </div>
+  </section>
+
+  <!-- ============ SCREEN 11 · REASONS ============ -->
+  <section class="screen" id="s-reasons" data-testid="screen-reasons" hidden>
+    <div class="wrap center">
+      <p class="kicker reveal">chapter ten · the evidence</p>
+      <h2 class="h-display reveal">Reasons you're<br>the <em>best Di</em></h2>
+      <div class="reason-gift" aria-hidden="true">🎁</div>
+      <div class="reason-card" id="reason-card" data-testid="reason-card"><p>press the button. trust me.</p></div>
+      <button class="btn btn-rose" id="reason-btn" data-testid="reason-btn">Give me a reason</button>
+      <p class="reason-hint">Keep clicking for more reasons ✨</p>
+      <div class="marquee" aria-hidden="true"><div class="marquee-track" id="marquee-2"></div></div>
+      <button class="btn btn-gold reveal" data-testid="continue-to-giftbox" data-next="#s-giftbox">There's an actual box next 🎁</button>
+    </div>
+  </section>
+
+  <!-- ============ SCREEN 12 · GIFT BOX ============ -->
+  <section class="screen screen-blush" id="s-giftbox" data-testid="screen-giftbox" hidden>
+    <div class="wrap center">
+      <p class="kicker reveal">chapter eleven · handle with care</p>
+      <h2 class="h-display reveal">A gift that took<br>weeks to wrap</h2>
+      <p class="lead reveal" id="gift-hint" data-testid="gift-hint">tap the gift…</p>
+      <button class="gift" id="gift-box" data-testid="gift-box" aria-label="Tap the gift box to open it">
+        <span class="gift-lid" aria-hidden="true"><i class="gift-ribbon-v"></i><i class="gift-bow"></i></span>
+        <span class="gift-base" aria-hidden="true"><i class="gift-ribbon-v"></i></span>
+        <span class="gift-light" aria-hidden="true"></span>
+      </button>
+      <div class="gift-msg" id="gift-msg">
+        <p class="serif-i">Some gifts fit in boxes.<br>The best ones never did.</p>
+        <p>It's been you. It's always been you.</p>
+      </div>
+      <button class="btn btn-gold" id="gift-next" data-testid="continue-to-letter" data-next="#s-letter" hidden>There's a letter inside 📜</button>
+    </div>
+  </section>
+
+  <!-- ============ SCREEN 13 · FINAL LETTER ============ -->
+  <section class="screen screen-lav" id="s-letter" data-testid="screen-letter" hidden>
+    <div class="wrap center">
+      <p class="kicker reveal">chapter twelve · read this slowly</p>
+      <div class="letter-paper" id="letter-paper" data-testid="letter-paper">
+        <div class="letter-lines" id="letter-lines"></div>
+        <p class="letter-sign" id="letter-sign" data-testid="letter-sign"></p>
+        <span class="letter-seal" aria-hidden="true"></span>
+      </div>
+      <button class="btn btn-gold" id="letter-next" data-testid="continue-to-finale" data-next="#s-finale" hidden>Wait… one last thing</button>
+    </div>
+  </section>
+
+  <!-- ============ SCREEN 14 · FINAL SURPRISE ============ -->
+  <section class="screen screen-dark" id="s-finale" data-testid="screen-finale" hidden>
+    <div class="wrap center finale-stage">
+      <p class="finale-line" id="finale-1">Wait…</p>
+      <p class="finale-line" id="finale-2">There's one last thing.</p>
+      <div class="finale-rakhi" id="finale-rakhi"></div>
+      <p class="finale-line serif-i" id="finale-3">Some bonds don't need words.</p>
+      <h2 class="h-display finale-line" id="finale-4">Happy Raksha Bandhan, <em>Di</em></h2>
+      <button class="btn btn-gold btn-glow finale-line" id="finale-next" data-testid="continue-to-wall" data-next="#s-wall">Come see our wall ❤️</button>
+    </div>
+  </section>
+
+  <!-- ============ SCREEN 15 · MEMORY WALL ============ -->
+  <section class="screen screen-wall" id="s-wall" data-testid="screen-wall" hidden>
+    <div class="wrap center">
+      <p class="kicker reveal">the last chapter · our mess</p>
+      <h2 class="h-display reveal">The memory wall</h2>
+      <p class="lead reveal">drag everything. make a mess. like we always did.</p>
+    </div>
+    <div class="wall-board" id="wall-board" data-testid="wall-board"></div>
+    <footer class="wall-footer">
+      <button class="egg-flower" id="egg-flower" data-testid="egg-flower" aria-label="a little marigold">❀</button>
+      <p id="footer-line">made with far too much love (and a little code)</p>
+    </footer>
+  </section>
+
+</main>
+
+<!-- photo lightbox -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer" data-testid="photo-lightbox" hidden>
+  <div class="lb-backdrop" data-lb-close></div>
+  <figure class="lb-fig">
+    <div class="lb-media" id="lb-media"></div>
+    <figcaption class="lb-figcap"><span class="lb-cap" id="lb-caption"></span><span class="lb-date" id="lb-date"></span></figcaption>
+    <button class="lb-btn lb-prev" id="lb-prev" data-testid="lightbox-prev" aria-label="Previous photo">‹</button>
+    <button class="lb-btn lb-next" id="lb-next" data-testid="lightbox-next" aria-label="Next photo">›</button>
+    <button class="lb-btn lb-close" id="lb-close" data-testid="lightbox-close" aria-label="Close photo">✕</button>
+  </figure>
+</div>
+
+<!-- envelope letter sheet -->
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-label="Letter" data-testid="envelope-sheet" hidden>
+  <div class="sheet-backdrop" data-sheet-close></div>
+  <div class="sheet-panel">
+    <button class="sheet-close" id="sheet-close" data-testid="sheet-close" aria-label="Close letter">✕</button>
+    <p class="sheet-title" id="sheet-title"></p>
+    <div class="sheet-letter" id="sheet-letter"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast" data-testid="toast" role="status" aria-live="polite"></div>
+
+<button id="music-btn" data-testid="music-toggle" aria-label="Toggle music" aria-pressed="false">
+  <span class="music-note" aria-hidden="true">♪</span><span id="music-label">Music</span>
+</button>
+
+<script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js" defer></script>
+<script src="js/config.js?v=2" defer></script>
+<script src="js/fx.js" defer></script>
+<script src="js/journey.js?v=2" defer></script>
+<script src="js/screens-a.js?v=2" defer></script>
+<script src="js/screens-b.js" defer></script>
+<script src="js/screens-c.js" defer></script>
+</body>
+</html>

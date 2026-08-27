@@ -1,0 +1,15 @@
+CHAPTER 3 · PHOTO MEMORIES
+
+Add up to 10 photos here with these exact names:
+  memory1.jpg
+  memory2.jpg
+  memory3.jpg
+  memory4.jpg
+  memory5.jpg
+  memory6.jpg
+  memory7.jpg
+  memory8.jpg
+  memory9.jpg
+  memory10.jpg
+
+The number controls the order in the gallery. Update the caption in js/config.js if needed.
