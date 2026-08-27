@@ -36,7 +36,14 @@ function initWelcome() {
     if (okayClicks === 1) {
       okay.textContent = "Okay okay… open it 😌";
       okay.classList.add("welcome-okay-ready");
-      banter.textContent = "One more click. I promise this time it is worth it 👀";
+      banter.textContent = "Ohh, you really opened it? I thought you would choose ‘Not interested’ 😂";
+      FX.sparkle(e.clientX, e.clientY);
+      return;
+    }
+    if (okayClicks === 2) {
+      okay.textContent = "Open it";
+      banter.textContent = "There we go. Now press it properly 👀";
+      okay.classList.remove("welcome-okay-ready");
       FX.sparkle(e.clientX, e.clientY);
       return;
     }
