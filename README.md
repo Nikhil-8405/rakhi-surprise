@@ -32,14 +32,20 @@ pastel placeholder cards are shown automatically — nothing breaks.
 Drop any mp3 at **`assets/music.mp3`**. The floating ♪ button controls it.
 If the file is missing the site works perfectly — the button just tells you.
 
-## 4 · Personalize everything
+## 4 · Add the puzzle photo
+
+Add one image named **`puzzlephoto.jpg`** directly inside **`assets/`**. The
+chapter 7 puzzle divides this image into 9 pieces automatically. A placeholder
+pattern is used until the image is added.
+
+## 5 · Personalize everything
 
 Open **`js/config.js`** — the clearly marked **PERSONALIZATION AREA** at the
 top. Edit: sister's name, your name, photo captions/dates, timeline memories,
 flip-card messages, envelope letters, quiz questions, reasons, the final
 letter, and the memory-wall notes. That's the only file you need to touch.
 
-## 5 · Deploy free (get a shareable link)
+## 6 · Deploy free (get a shareable link)
 
 This is a pure static site — host it free anywhere:
 - **Netlify**: drag this folder onto https://app.netlify.com/drop → instant link
