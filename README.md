@@ -1,4 +1,4 @@
-# 🪔 For My Di — A Rakhi Surprise Website
+#  For My Di — A Rakhi Surprise Website
 
 A complete 15-screen interactive Raksha Bandhan journey: magical intro, rakhi
 ceremony, photo polaroids, memory timeline, secret envelopes, puzzle, quiz,
@@ -22,10 +22,8 @@ python3 -m http.server 8080
 Use the separate folders inside **`assets/photos/`**:
 - **`memories/`**: chapter 3, named `memory1.jpg … memory10.jpg`
 - **`timeline/`**: chapter 4, named `timeline1.jpg … timeline4.jpg`
-- **`wall/`**: final memory wall, named `wall1.jpg … wall3.jpg`
+- **`wall/`**: final memory wall, named `wall1.jpg … wall4.jpg`
 
-Each folder contains a `PUT-YOUR-PHOTOS-HERE.txt` guide. Until you add photos,
-pastel placeholder cards are shown automatically — nothing breaks.
 
 ## 3 · Add music
 
@@ -63,9 +61,10 @@ rakhi/
 └── assets/
     ├── music.mp3        (you add this)
     └── photos/
+        ├── puzzlephoto.jpg
         ├── memories/    (chapter 3 photos)
         ├── timeline/    (chapter 4 photos)
-        └── wall/        (memory wall photos)
+        └── wall/        (memory wall 4 photos)
 ```
 
 ## Hidden easter eggs 🥚

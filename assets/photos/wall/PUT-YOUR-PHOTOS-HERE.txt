@@ -1,9 +1,0 @@
-FINAL MEMORY WALL · CHAPTER 15
-
-Add these photos here with these exact names:
-  wall1.jpg = us, probably plotting
-  wall2.jpg = the good old days
-  wall3.jpg = vacation mode
-  wall4.jpg = always a little ridiculous
-
-To add more wall photos, add a type: photo entry in js/config.js and give it a unique src path here.

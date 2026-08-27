@@ -1,8 +1,0 @@
-See the three folders inside this folder:
-
-memories   = chapter 3 photo memories
-timeline   = chapter 4 timeline photos
-wall       = final memory wall photos
-
-Put each image in the matching folder using the names shown in that folder's
-PUT-YOUR-PHOTOS-HERE.txt file. JPG files are recommended.

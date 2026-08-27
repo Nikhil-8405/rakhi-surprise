@@ -20,7 +20,6 @@ function initWelcome() {
   const banter = document.getElementById("welcome-banter");
   let okayClicks = 0, noClicks = 0;
   const noLines = [
-    "Please open it na 🥺",
     "That button was only a test. Try the nice one 😌",
     "Not interested? I spent actual time on this 😂",
     "Okay, I will wait right here… dramatically."
