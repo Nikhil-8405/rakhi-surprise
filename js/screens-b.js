@@ -79,6 +79,7 @@ function initPuzzle() {
     sel = null; render();
     if (order.every((v, i) => v === i)) {
       solved = true;
+      grid.classList.add("solved");
       msg.textContent = "You solved it! 🥹";
       const r = grid.getBoundingClientRect();
       FX.confetti(r.left + r.width / 2, r.top + r.height / 2);
